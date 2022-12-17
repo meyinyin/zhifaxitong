@@ -1,0 +1,700 @@
+﻿@model Maticsoft.Model.About
+@{
+    Layout = null;
+    bool IsSuccess = (bool)ViewBag.IsSuccess;
+}
+@if (IsSuccess)
+{
+    <div class="alert alert-success with-icon" id="showMsg" style="transition: all 1s; ">
+        <i class="icon-smile"></i>
+        <div class="content">
+            <h4>好消息</h4>
+            修改成功！
+        </div>
+    </div>
+    <script>
+        let showMsg = document.getElementById('showMsg')
+        console.log(showMsg)
+        if (showMsg) {
+            setTimeout(() => {
+                showMsg.parentNode.removeChild(showMsg);
+            }, 2000)
+        }
+    </script>
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>官网后台</title>
+    <link href="~/dist/lib/uploader/zui.uploader.min.css" rel="stylesheet" />
+    <link href="~/dist/css/zui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/static/admin/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="~/static/admin/css/admin.css" />
+    <style>
+        .layui-form-label {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-content-wrap">
+        <form class="layui-form" action="/Manger/JiDiEdit/" method="post">
+            <div class="layui-tab" style="margin: 0;">
+                <div class="layui-tab-content">
+
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">标题1：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="PicURL" lay-verify="required" placeholder="请输入工作标题" autocomplete="off" class="layui-input" value="@Model.PicURL">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">标题1：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="PicURL1" lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" value="@Model.PicURL1">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">标题2：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="PicURL2" lay-verify="required" placeholder="请输入工作标题" autocomplete="off" class="layui-input" value="@Model.PicURL2">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">标题2：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="PicURL3" lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" value="@Model.PicURL3">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">标题3：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="PicURL4" lay-verify="required" placeholder="请输入工作标题" autocomplete="off" class="layui-input" value="@Model.PicURL4">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">标题3：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="PicURL5" lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" value="@Model.PicURL5">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">标题4：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="PicURL6" placeholder="请输入工作标题" autocomplete="off" class="layui-input" value="@Model.PicURL6">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">标题4：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="PicURL7" placeholder="请输入标题" autocomplete="off" class="layui-input" value="@Model.PicURL7">
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">图片1:</label>
+                            <input type="hidden" name="PicURL8" id="PicURL8" value="@Model.PicURL8" />
+                            <div class="col-md-10">
+                                <div id='PicUpload1' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.PicURL8" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">图片2:</label>
+                            <input type="hidden" name="PicURL9" id="PicURL9" value="@Model.PicURL9" />
+                            <div class="col-md-10">
+                                <div id='PicUpload2' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.PicURL9" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">图片3:</label>
+                            <input type="hidden" name="PicURL10" id="PicURL10" value="@Model.PicURL10" />
+                            <div class="col-md-10">
+                                <div id='PicUpload3' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.PicURL10" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">图片4:</label>
+                            <input type="hidden" name="PicURL11" id="PicURL11" value="@Model.PicURL11" />
+                            <div class="col-md-10">
+                                <div id='PicUpload4' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.PicURL11" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">图片5:</label>
+                            <input type="hidden" name="PicURL12" id="PicURL12" value="@Model.PicURL12" />
+                            <div class="col-md-10">
+                                <div id='PicUpload5' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.PicURL12" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">图片6:</label>
+                            <input type="hidden" name="PicURL13" id="PicURL13" value="@Model.PicURL13" />
+                            <div class="col-md-10">
+                                <div id='PicUpload6' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.PicURL13" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">图片7:</label>
+                            <input type="hidden" name="WXURL1" id="WXURL1" value="@Model.WXURL1" />
+                            <div class="col-md-10">
+                                <div id='PicUpload7' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.WXURL1" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">图片8:</label>
+                            <input type="hidden" name="WXURL2" id="WXURL2" value="@Model.WXURL2" />
+                            <div class="col-md-10">
+                                <div id='PicUpload8' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.WXURL2" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">工作类别1：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="Title2" lay-verify="required" placeholder="请输入工作类别" autocomplete="off" class="layui-input" value="@Model.Title2">
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">工作类别图片1:</label>
+                            <input type="hidden" name="Title3" id="Title3" value="@Model.Title3" />
+                            <div class="col-md-10">
+                                <div id='PicUpload11' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.Title3" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">工作类别2：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="Title4" lay-verify="required" placeholder="请输入工作类别" autocomplete="off" class="layui-input" value="@Model.Title4">
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">工作类别图片:</label>
+                            <input type="hidden" name="Title5" id="Title5" value="@Model.Title5" />
+                            <div class="col-md-10">
+                                <div id='PicUpload12' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.Title5" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">工作类别3：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="Title7" lay-verify="required" placeholder="请输入工作类别" autocomplete="off" class="layui-input" value="@Model.Title7">
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">工作类别图片3:</label>
+                            <input type="hidden" name="JDtxt1" id="JDtxt1" value="@Model.JDtxt1" />
+                            <div class="col-md-10">
+                                <div id='PicUpload13' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.JDtxt1" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">工作类别4：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="JDtxt2" lay-verify="required" placeholder="请输入工作类别" autocomplete="off" class="layui-input" value="@Model.JDtxt2">
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">工作类别图片4:</label>
+                            <input type="hidden" name="JDtxt3" id="JDtxt3" value="@Model.JDtxt3" />
+                            <div class="col-md-10">
+                                <div id='PicUpload14' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.JDtxt3" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">工作类别5：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="JDtxt4" lay-verify="required" placeholder="请输入工作类别" autocomplete="off" class="layui-input" value="@Model.JDtxt4">
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">工作类别图片5:</label>
+                            <input type="hidden" name="JDtxt5" id="JDtxt5" value="@Model.JDtxt5" />
+                            <div class="col-md-10">
+                                <div id='PicUpload15' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.JDtxt5" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">工作类别6：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="JDtxt6" lay-verify="required" placeholder="请输入工作类别" autocomplete="off" class="layui-input" value="@Model.JDtxt6">
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">工作类别图片6:</label>
+                            <input type="hidden" name="JDtxt7" id="JDtxt7" value="@Model.JDtxt7" />
+                            <div class="col-md-10">
+                                <div id='PicUpload16' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.JDtxt7" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">标题：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="JDtxt8" lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" value="@Model.JDtxt8">
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-form-text">
+                        <label for="Content" class="layui-form-label">内容:</label>
+                        <label for="Content" class="layui-form-label">(请勿在此处上传图片！！！)</label>
+                        <div class="layui-input-block">
+                            <textarea id="Content" name="JDtxt9" class="form-control kindeditor" style="height:150px;">@Model.JDtxt9</textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">标题：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="JDtxt10" lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" value="@Model.JDtxt10">
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-form-text">
+                        <label for="Content" class="layui-form-label">内容:</label>
+                        <label for="Content" class="layui-form-label">(请勿在此处上传图片！！！)</label>
+                        <div class="layui-input-block">
+                            <textarea id="Description" name="Description" class="form-control kindeditor" style="height:150px;">@Model.Description</textarea>
+                        </div>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label for="PicURL" class="layui-form-label">图片:</label>
+                            <input type="hidden" name="WXURL3" id="WXURL3" value="@Model.WXURL3" />
+                            <div class="col-md-10">
+                                <div id='PicUpload20' class="uploader" data-ride="uploader" data-url="/api/news/upload">
+                                    <div class="uploader-message text-center">
+                                        <div class="content"></div>
+                                        <button type="button" class="close">×</button>
+                                    </div>
+                                    <div class="uploader-files file-list file-list-grid">
+                                        <img style="width:80px;padding-left:10px;" src="@Model.WXURL3" />
+                                    </div>
+                                    <div>
+                                        <hr class="divider">
+                                        <div class="uploader-status pull-right text-muted"></div>
+                                        <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择文件</button>
+                                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item" style="padding-left: 10px;">
+                <div class="layui-input-block">
+                    <button class="layui-btn layui-btn-normal" lay-submit lay-filter="formDemo" type="submit">立即修改</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- jQuery (ZUI中的Javascript组件依赖于jQuery) -->
+    <script src="~/dist/lib/jquery/jquery.js"></script>
+    <script src="~/static/admin/layui/layui.js"></script>
+    <script src="~/static/admin/js/common.js"></script>
+    <script src="~/dist/lib/uploader/zui.uploader.min.js"></script>
+    <script src="~/dist/lib/kindeditor/kindeditor.min.js"></script>
+
+    <!-- 在此处编码你的创意 -->
+    <!-- ZUI Javascript组件 -->
+    <script src="~/dist/js/zui.min.js"></script>
+    <script src="~/dist/lib/uploader/zui.uploader.min.js"></script>
+    <link href="~/dist/lib/uploader/zui.uploader.min.css" rel="stylesheet">
+    <link href="~/dist/lib/datetimepicker/datetimepicker.min.css" rel="stylesheet">
+    <script src="~/dist/lib/datetimepicker/datetimepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/static/admin/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="~/static/admin/css/admin.css" />
+    <script type="text/javascript">
+        KindEditor.create('textarea.kindeditor', {
+            basePath: '/dist/lib/kindeditor/',
+            allowFileManager: true,
+            bodyClass: 'article-content',
+            uploadJson: '/Common/Upload_json',
+            //uploadJson: '/api/news/upload',
+            fileManagerJson: '/Common/FileManager',
+            newlineTag: "br",
+            urlType: 'domain'
+        });
+        $('#PicUpload1').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#PicURL8').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload2').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#PicURL9').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload3').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#PicURL10').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload4').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#PicURL11').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload5').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#PicURL12').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload6').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#PicURL13').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload7').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#WXURL1').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload8').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#WXURL2').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload11').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#Title3').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload12').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#Title5').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload13').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#JDtxt1').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload14').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#JDtxt3').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload15').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#JDtxt5').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload16').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#JDtxt7').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+        $('#PicUpload20').uploader({
+            chunk_size: '4294967295',
+            onFileUploaded: function (file, res) {
+                if (file) {
+                    var ret = $.parseJSON(res.response);
+                    $('#WXURL3').val('/uploadshop/' + ret.data);
+                };
+            }
+        });
+    </script>
+    <script>
+        layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog', 'element', 'upload', 'layedit'], function () {
+            var form = layui.form(),
+                layer = layui.layer,
+                $ = layui.jquery,
+                laypage = layui.laypage,
+                laydate = layui.laydate,
+                layedit = layui.layedit,
+                element = layui.element(),
+                dialog = layui.dialog;
+
+            //获取当前iframe的name值
+            var iframeObj = $(window.frameElement).attr('name');
+
+        });
+
+    </script>
+</body>
+
+</html>

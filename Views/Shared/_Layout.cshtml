@@ -1,0 +1,146 @@
+﻿@{
+    Maticsoft.BLL.About abll = new Maticsoft.BLL.About();
+    var info = abll.GetModelList("Title1='联系我们'");
+}
+<!DOCTYPE html>
+<html lang="zh-CN" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="codepixer">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="utf-8">
+    <!-- Site Title -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <title>自贡城乡管理执法信息系统</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="shortcut icon" type="" href="favicon.ico">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="~/ccss/linearicons.css">
+    <link rel="stylesheet" href="~/ccss/font-awesome.min.css">
+    <link rel="stylesheet" href="~/ccss/bootstrap.css">
+    <link rel="stylesheet" href="~/ccss/magnific-popup.css">
+    <link rel="stylesheet" href="~/ccss/nice-select.css">
+    <link rel="stylesheet" href="~/ccss/animate.min.css">
+    <link rel="stylesheet" href="~/ccss/owl.carousel.css">
+    <link rel="stylesheet" href="~/ccss/main.css">
+</head>
+<body>
+
+    <header id="header" class="header-scrolled">
+        <div class="container">
+            <div class="row align-items-center justify-content-between d-flex">
+                <div id="logo">
+                    <a href="index.html"><img class="logoimg" src="~/img/logokk.png" style="width:130px;height:100px;"/></a>
+                </div>
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                        <li class="menu-active"><a href="/Home/Index">首页</a></li>
+                        <li><a href="/Home/About">自贡城乡</a></li>
+                        <li><a href="/Home/Category">执法公示</a></li>
+
+                        <li><a href="/Home/Contact">案件提交</a></li>
+
+                        <li><a class="ticker-btn" asp-area="Identity" asp-page="/Account/Register">注册</a></li>
+
+                        <li><a class="ticker-btn" asp-area="Identity" asp-page="/Account/Login" title="Manage">登录</a></li>
+                    </ul>
+                </nav><!-- #nav-menu-container -->
+            </div>
+        </div>
+    </header><!-- #header -->
+    
+    <!-- Start popular-post Area -->
+
+    @RenderBody()
+
+    <footer class="footer-area section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3  col-md-12">
+                    <div class="single-footer-widget">
+                        <h6>热门搜索</h6>
+                        <ul class="footer-nav">
+                            <li><a href="#">职位搜索</a></li>
+                            <li><a href="#">校园招聘</a></li>
+                            <li><a href="#">简历中心</a></li>
+                            <li><a href="#">谁看过我的简历</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6  col-md-12">
+                    <div class="single-footer-widget newsletter">
+                        <h6>通讯</h6>
+                        <p>您可以信任我们。我们还发送职位信息，而不单发送邮件。</p>
+                        <div id="mc_embed_signup">
+                            <form target="_blank" novalidate action="#/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+
+                                <div class="form-group row" style="width: 100%">
+                                    <div class="col-lg-8 col-md-12">
+                                        <input name="EMAIL" placeholder="输入电子邮箱" onfocus="this.placeholder = ''" onblur="this.placeholder = '输入电子邮箱 '" required="" type="email">
+                                        <div style="position: absolute; left: -5000px;">
+                                            <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-12">
+                                        <button class="nw-btn primary-btn" >订阅<span class="lnr lnr-arrow-right"></span></button>
+                                    </div>
+                                </div>
+                                <div class="info"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3  col-md-12">
+                    <div class="single-footer-widget mail-chimp">
+                        <iframe width="400" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://j.map.baidu.com/s/4DCIFb"></iframe>
+
+                    </div>
+                </div>
+            </div>
+            @foreach (var i in info) { 
+                <div class="row footer-bottom d-flex justify-content-between">
+                    <p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
+
+                        @i.PicURL1 <br />@i.PicURL2 <br /> &copy;
+                        <script>document.write(new Date().getFullYear());</script> @i.PicURL3 |
+                         &emsp;@i.PicURL4 &emsp;&emsp;@i.PicURL5 &emsp;&emsp;@i.PicURL6
+
+                    </p>
+                </div>
+            }
+            
+        </div>
+    </footer>
+    <!-- End footer Area -->
+
+    <script src="~/cjs/vendor/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="~/cjs/vendor/bootstrap.min.js"></script>
+    <script src="~/cjs/easing.min.js"></script>
+    <script src="~/cjs/hoverIntent.js"></script>
+    <script src="~/cjs/superfish.min.js"></script>
+    <script src="~/cjs/jquery.ajaxchimp.min.js"></script>
+    <script src="~/cjs/jquery.magnific-popup.min.js"></script>
+    <script src="~/cjs/owl.carousel.min.js"></script>
+    <script src="~/cjs/jquery.sticky.js"></script>
+    <script src="~/cjs/jquery.nice-select.min.js"></script>
+    <script src="~/cjs/parallax.min.js"></script>
+    <script src="~/cjs/mail-script.js"></script>
+    <script src="~/cjs/main.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

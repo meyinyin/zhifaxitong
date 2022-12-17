@@ -1,0 +1,222 @@
+﻿@model Maticsoft.Model.About
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    关于我们
+                </h1>
+                <p class="text-white link-nav"><a href="/Home/Index">首页 </a>  <span class="lnr lnr-arrow-right"></span>  <a href="/Home/About"> 关于我们</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+<section class="service-area section-gap" id="service">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 pb-40 header-text">
+                <h1>为什么选择我们</h1>
+                <p>
+                    Why Choose Us
+                </p>
+            </div>
+        </div>
+        <div class="row">
+           
+            <div class="col-lg-4 col-md-6">
+                <div class="single-service">
+                    <h4><span class="lnr lnr-user"></span>@Model.Title2</h4>
+                    <p>
+                        @Model.JDtxt1
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-service">
+                    <h4><span class="lnr lnr-license"></span>@Model.Title3</h4>
+                    <p>
+                        @Model.JDtxt2
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-service">
+                    <h4><span class="lnr lnr-phone"></span>@Model.Title4</h4>
+                    <p>
+                       @Model.JDtxt3
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-service">
+                    <h4><span class="lnr lnr-rocket"></span>@Model.Title5</h4>
+                    <p>
+                       @Model.JDtxt4
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-service">
+                    <h4><span class="lnr lnr-diamond"></span>@Model.Title5</h4>
+                    <p>
+                        @Model.JDtxt5
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-service">
+                    <h4><span class="lnr lnr-bubble"></span>@Model.PicURL</h4>
+                    <p>
+                       @Model.JDtxt6
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End service Area -->
+<!-- Start feature Area -->
+ -->
+<!-- End feature Area -->
+<!-- Start callto-action Area -->
+<section class="callto-action-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content col-lg-9">
+                <div class="title text-center">
+                    <h1 class="mb-10 text-white">立即加入我们</h1>
+                    <p class="text-white"><p>企业安全理念：以人为本，生命至上，事前预防，主动管理。</p>
+                    <p>企业文化目标：用先进的理念引导人，用优良的作风鼓舞人</p>
+                    <p>服务宗旨：优秀的团队  专业的服务</p>
+                    </p>
+                    <a class="primary-btn" href="/Home/Contact/">预约面试</a>
+                    <a class="primary-btn" href="/Home/Contact/">立即申请</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End calto-action Area -->
+<!-- Start testimonial Area -->
+<section class="testimonial-area section-gap" id="review">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">众益技能培训学校</h1>
+                    <p>学校培训及剪影</p>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="active-review-carusel">
+                <div class="single-review">
+
+                    <img class="img-fluid" src="@Model.PicURL1" style="width: 515px; height: 300px;">
+
+                </div>
+                <div class="single-review">
+                    <div class="title d-flex flex-row">
+                        <h4>@Model.PicURL5</h4>
+                        <div class="star" id="star_1">
+                            
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+                    <p>
+                     @Model.JDtxt7
+                    </p>
+                </div>
+                <div class="single-review">
+
+                    <img class="img-fluid" src="@Model.PicURL2" style="width: 515px; height: 300px;">
+
+                </div>
+                <div class="single-review">
+                    @*<img src="@Model.PicURL2" alt="">*@
+                    <div class="title d-flex flex-row">
+                        <h4>@Model.PicURL6</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                    <p>
+                        @Model.JDtxt8
+                    </p>
+                </div>
+                <div class="single-review">
+
+                    <img class="img-fluid" src="@Model.PicURL3" style="width: 515px; height: 300px;">
+
+                </div>
+                <div class="single-review">
+                    @*<img src="@Model.PicURL3" alt="">*@
+                    <div class="title d-flex flex-row">
+                        <h4>@Model.PicURL7</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                    <p>
+                        @Model.JDtxt9
+                    </p>
+                </div>
+                <div class="single-review">
+
+                    <img class="img-fluid" src="@Model.PicURL4" style="width: 515px; height: 300px;">
+
+                </div>
+                <div class="single-review">
+                    @*<img src="img/r2.png" alt="">*@
+                    <div class="title d-flex flex-row">
+                        <h4>@Model.PicURL8</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                    <p>
+                        @Model.JDtxt10
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    //window.onload = () => {
+    //    var str1 = document.getElementById("star_1")
+
+    //    var obj = document.createElement("span")
+    //    var ooo = str1.appendChild(obj)
+    //    var ppp = str1.getElementsByClassName("span")[0].classList.add("fa", "fa-star", "checked")
+    //    console.log(ppp)
+    //    //for (var i = 0; i < 3; i++) {
+    //    //    str1.appendChild(document.createElement("span").classList.add("fa", "fa-star", "checked"))
+    //    //}
+    //}
+</script>
+<!-- End testimonial Area -->

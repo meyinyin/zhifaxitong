@@ -1,0 +1,222 @@
+﻿@model Maticsoft.Model.About
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row fullscreen d-flex align-items-center justify-content-center" style="height: 767px;">
+            <div class="banner-content col-lg-12">
+                <h1 class="text-white">
+                    汉中市众益人力资源管理服务有限公司  <br><br>
+                    汉中众益技能培训学校
+                </h1>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+<!-- Start features Area -->
+<section class="features-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="single-feature">
+                    <h4>@Model.PicURL</h4>
+                    <p>
+                        @Model.PicURL1
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-feature">
+                    <h4>@Model.PicURL2</h4>
+                    <p>
+                        @Model.PicURL3
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-feature">
+                    <h4>@Model.PicURL4</h4>
+                    <p>
+                        @Model.PicURL5
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-feature">
+                    <h4>@Model.PicURL6</h4>
+                    <p>
+                        @Model.PicURL7
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End features Area -->
+<!-- Start pictures -->
+<section class="popular-post-area pt-100">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="active-popular-post-carusel">
+                <div class="single-popular-post d-flex flex-row">
+                    <img class="img-fluid" src="@Model.PicURL8" style="width: 515px; height: 300px;">
+
+                </div>
+                <div class="single-popular-post d-flex flex-row">
+                    <img class="img-fluid" src="@Model.PicURL9" style="width: 515px; height: 300px;">
+
+                </div>
+                <div class="single-popular-post d-flex flex-row">
+                    <img class="img-fluid" src="@Model.PicURL10" style="width: 515px; height: 300px;">
+
+                </div>
+                <div class="single-popular-post d-flex flex-row">
+                    <img class="img-fluid" src="@Model.PicURL11" style="width: 515px; height: 300px;">
+
+                </div>
+                <div class="single-popular-post d-flex flex-row">
+                    <img class="img-fluid" src="@Model.PicURL12" style="width: 515px; height: 300px;">
+
+                </div>
+                <div class="single-popular-post d-flex flex-row">
+                    <img class="img-fluid" src="@Model.PicURL13" style="width: 515px; height: 300px;">
+
+                </div>
+                <div class="single-popular-post d-flex flex-row">
+                    <img class="img-fluid" src="@Model.WXURL1" style="width: 515px; height: 300px;">
+
+                </div>
+                <div class="single-popular-post d-flex flex-row">
+                    <img class="img-fluid" src="@Model.WXURL2" style="width: 515px; height: 300px;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End class work -->
+<!-- Start class work -->
+<section class="feature-cat-area pt-100" id="category">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-10">
+                <div class="title text-center">
+                    <h1 class="mb-10">特色工作类别</h1>
+                    <p>Featured Job Categories</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="single-fcat">
+                    <a href="category.html">
+                        <img src="@Model.Title3" alt="">
+                    </a>
+                    <p>@Model.Title2</p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="single-fcat">
+                    <a href="category.html">
+                        <img src="@Model.Title5" alt="">
+                    </a>
+                    <p>@Model.Title4</p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="single-fcat">
+                    <a href="category.html">
+                        <img src="@Model.JDtxt1" alt="">
+                    </a>
+                    <p>@Model.Title7</p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="single-fcat">
+                    <a href="category.html">
+                        <img src="@Model.JDtxt3" alt="">
+                    </a>
+                    <p>@Model.JDtxt2</p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="single-fcat">
+                    <a href="category.html">
+                        <img src="@Model.JDtxt5" alt="">
+                    </a>
+                    <p>@Model.JDtxt4</p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="single-fcat">
+                    <a href="category.html">
+                        <img src="@Model.JDtxt7" alt="">
+                    </a>
+                    <p>@Model.JDtxt6</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End class work -->
+<!-- Start description -->
+<section class="callto-action-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content col-lg-11">
+                <div class="title ">
+                    <h1 class="mb-10 text-white text-center">@Model.JDtxt8</h1>
+
+                    <p class=" bodyfont"> @Html.Raw(Model.JDtxt9)</p>
+                    
+                    <a class="primary-btn" href="/Home/Contact/" >预约面试</a>
+                    <a class="primary-btn" href="/Home/Contact/" >立即申请</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End description -->
+<!-- Start description for school -->
+<section class="download-area section-gap" id="app">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 download-left">
+                <!-- <img class="img-fluid" src="img/d1.png" alt=""> -->
+                <img class="img-fluid" src="@Model.WXURL3" alt="">
+            </div>
+            <div class="col-lg-6 download-right">
+                <h1>@Model.JDtxt10</h1>
+                @Html.Raw(Model.Description)
+                <!-- <div class="d-flex flex-row">
+        <div class="buttons">
+
+            <div class="desc">
+                <a href="#">
+                    <p>
+                        <span>其他地区</span>
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="buttons">
+
+            <div class="desc">
+                <a href="#">
+                    <p>
+                        <span>我要报名</span>
+                    </p>
+                </a>
+            </div>
+        </div>
+    </div>						 -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End description for school -->

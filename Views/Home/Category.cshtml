@@ -1,0 +1,221 @@
+﻿@model List<Maticsoft.Model.News>
+@{
+    ViewData["Title"] = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Maticsoft.BLL.SortType sbll = new Maticsoft.BLL.SortType();
+    Maticsoft.BLL.About abll = new Maticsoft.BLL.About();
+    Maticsoft.BLL.News nbll = new Maticsoft.BLL.News();
+    var slist = sbll.GetModelList("");
+    var workAdress = abll.GetModelList("Title1='工作地点'");
+    var workSort = abll.GetModelList("Title1='职位分类'");
+    var hotNews = abll.GetModelList("Title1='热搜'");
+    var workhotlist = nbll.GetModelList("IsTJ=1 and IsLock=1 and IsHot=1 and IsTop=1").OrderByDescending(c => c.AddDateTime);
+}
+
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    职位详情
+                </h1>
+                <p class="text-white link-nav"><a href="/Home/Index">首页 </a>  <span class="lnr lnr-arrow-right"></span>  <a href="/Home/Category"> 职位详情</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+
+<section class="post-area section-gap">
+    <div class="container">
+        <div class="row justify-content-center d-flex">
+            <div class="col-lg-8 post-list hurfb">
+                <ul class="cat-list">
+                    @{ foreach (var i in slist)
+                        {
+                            <li><a href="/Home/Category/?sort=@i.ID">@i.Name</a></li>
+                        }}
+                    @*<li><a href="#">最近</a></li>
+            <li><a href="#">全职</a></li>
+            <li><a href="#">内部</a></li>
+            <li><a href="#">兼职</a></li>*@
+                </ul>
+
+                @{
+                    foreach (var a in Model)
+                    {
+                        var hre = (a.PicURL != null && a.PicURL != "")? a.PicURL : "#";
+                        <div class="single-post d-flex flex-row">
+                            <div class="thumb">
+
+                                <!-- <img src="img/jobimg1.png" alt=""> -->
+                                <ul class="tags">
+                                    <li style="width:100px;">
+                                        <a href= @hre>附 件 下 载</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="details">
+                                <div class="title d-flex flex-row justify-content-between">
+                                    <div class="titles">
+                                        <a href="single.html"><h4>@a.Title</h4></a>
+                                        <h6>@a.Author</h6>
+                                    </div>
+                                    <ul class="btns">
+                                        <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
+                                        <li><a href="/Home/Contact">投递简历</a></li>
+                                    </ul>
+                                </div>
+                                @Html.Raw(a.Content)
+                                <h5>工作性质: 全职</h5>
+                                <p class="address"><span class="lnr lnr-map"></span> 学历:@a.KeyWord</p>
+                                <p class="address"><span class="lnr lnr-database"></span> @a.Tag</p>
+                            </div>
+                        </div>
+                    }
+                }
+                                
+                @*<a class="text-uppercase loadmore-btn mx-auto d-block" href="#">加载更多</a>*@
+
+            </div>
+            <div class="col-lg-4 sidebar">
+                <div class="single-slidebar">
+                    <h4>工作地点</h4>
+                    <ul class="cat-list">
+                        @foreach (var w in workAdress)
+                        {
+                            <li><a class="justify-content-between d-flex" href=""><p>@w.PicURL</p><span>@w.PicURL1</span></a></li>
+                            <li><a class="justify-content-between d-flex" href=""><p>@w.PicURL2</p><span>@w.PicURL3</span></a></li>
+                            <li><a class="justify-content-between d-flex" href=""><p>@w.PicURL4</p><span>@w.PicURL5</span></a></li>
+                            <li><a class="justify-content-between d-flex" href=""><p>@w.PicURL6</p><span>@w.PicURL7</span></a></li>
+                            <li><a class="justify-content-between d-flex" href=""><p>@w.PicURL8</p><span>@w.PicURL9</span></a></li>
+                            <li><a class="justify-content-between d-flex" href=""><p>@w.PicURL10</p><span>@w.PicURL11</span></a></li>
+                            <li><a class="justify-content-between d-flex" href=""><p>@w.PicURL12</p><span>@w.PicURL13</span></a></li>
+                        }
+                    </ul>
+                </div>
+
+
+                @if (workhotlist.Count() > 1) 
+                {
+                    <div class="single-slidebar">
+                        <h4>最热职位</h4>
+                        <div class="active-relatedjob-carusel">
+                            @foreach (var wh in workhotlist)
+                            {
+                                <div class="single-rated">
+                                    <a href="single.html"><h4>@wh.Title</h4></a>
+                                    <h6>@wh.Author</h6>
+                                    <p>
+                                    <p>@Html.Raw(wh.Content)</p>
+                                    </p>
+                                    <p class="address"><span class="lnr lnr-map"></span> 学历:@wh.KeyWord</p>
+                                    <p class="address"><span class="lnr lnr-database"></span> @wh.Tag</p>
+                                    <a href="/Home/Contact" class="btns text-uppercase">投递简历</a>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                }
+                
+
+                <div class="single-slidebar">
+                    <h4>职位分类</h4>
+                    <ul class="cat-list">
+                        @foreach (var s in workSort)
+                        {
+                            <li><a class="justify-content-between d-flex" href=""><p>@s.PicURL</p><span>@s.PicURL1</span></a></li>
+                            <li><a class="justify-content-between d-flex" href=""><p>@s.PicURL2</p><span>@s.PicURL3</span></a></li>
+                            <li><a class="justify-content-between d-flex" href=""><p>@s.PicURL4</p><span>@s.PicURL5</span></a></li>
+                            <li><a class="justify-content-between d-flex" href=""><p>@s.PicURL6</p><span>@s.PicURL7</span></a></li>
+                            <li><a class="justify-content-between d-flex" href=""><p>@s.PicURL8</p><span>@s.PicURL9</span></a></li>
+                            <li><a class="justify-content-between d-flex" href=""><p>@s.PicURL10</p><span>@s.PicURL11</span></a></li>
+                            <li><a class="justify-content-between d-flex" href=""><p>@s.PicURL12</p><span>@s.PicURL13</span></a></li>
+                        }
+
+                    </ul>
+                </div>
+
+                <div class="single-slidebar">
+                    <h4>热搜</h4>
+                    <div class="blog-list">
+                        <!-- <div class="single-blog " style="background:#000 url(img/blog1.jpg);"> -->
+                        @foreach (var h in hotNews)
+                        {
+                            <div class="single-blog " style="background:#000 url(@h.PicURL3);">
+                                <a href=""><h4>@h.PicURL <br></h4></a>
+                                <div class="meta justify-content-between d-flex">
+                                    <p>
+                                        @h.PicURL1
+                                    </p>
+                                    <p>
+                                        <span class="lnr lnr-heart"></span>
+                                        @h.PicURL2
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="single-blog " style="background:#000 url(@h.PicURL7);">
+                                <a href="">
+                                    <h4>
+                                        @h.PicURL4 <br>
+                                    </h4>
+                                </a>
+                                <div class="meta justify-content-between d-flex">
+                                    <p>
+                                        @h.PicURL5
+                                    </p>
+                                    <p>
+                                        <span class="lnr lnr-heart"></span>
+                                        @h.PicURL6
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="single-blog " style="background:#000 url(@h.PicURL11);">
+                                <a href="">
+                                    <h4>
+                                        @h.PicURL8 <br>
+                                    </h4>
+                                </a>
+                                <div class="meta justify-content-between d-flex">
+                                    <p>
+                                        @h.PicURL9
+                                    </p>
+                                    <p>
+                                        <span class="lnr lnr-heart"></span>
+                                        @h.PicURL10
+                                    </p>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End post Area -->
+<!-- Start callto-action Area -->
+<section class="callto-action-area section-gap" style="margin-bottom: 100px;">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content col-lg-9">
+                <div class="title text-center">
+                    <h1 class="mb-10 text-white">立即加入我们</h1>
+                    <p class="text-white"><p>企业安全理念：以人为本，生命至上，事前预防，主动管理。</p>
+                    <p>企业文化目标：用先进的理念引导人，用优良的作风鼓舞人</p>
+                    <p>服务宗旨：优秀的团队  专业的服务</p>
+                    </p>
+                    <a class="primary-btn" href="/Home/Contact">预约面试</a>
+                    <a class="primary-btn" href="/Home/Contact">立即申请</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End calto-action Area -->

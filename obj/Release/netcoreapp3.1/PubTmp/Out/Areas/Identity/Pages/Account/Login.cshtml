@@ -1,0 +1,122 @@
+﻿@page
+@model LoginModel
+
+@{
+    Layout = null;
+}
+
+@*<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <h4>Use a local account to log in.</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe">
+                            <input asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>*@
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>后台登录</title>
+    <link rel="stylesheet" type="text/css" href="~/static/admin/css/login.css" />
+    <link href="~/static/admin/layui/css/layui.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="m-login-bg">
+        <div class="m-login">
+            <h3>后台系统登录</h3>
+            <div class="m-login-warp">
+                <form class="layui-form" id="account" method="post">
+                    <div class="layui-form-item">
+                        <input type="text" name="Email" required lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-form-item">
+                        <input type="password" name="Password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-form-item m-login-btn">
+                        <div class="layui-inline">
+                            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="login" type="submit">登录</button>
+                        </div>
+                        <div class="layui-inline">
+                            @*<button type="reset" class="layui-btn layui-btn-primary">取消</button>*@
+                            <a href="/Home/Index"><input type="button" class="layui-btn layui-btn-primary" style="width: 100%;" value="返回前台" /></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../../static/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+			layui.use(['form', 'layedit', 'laydate'], function() {
+				var form = layui.form(),
+					layer = layui.layer;
+
+
+				//自定义验证规则
+				//form.verify({
+				//	title: function(value) {
+				//		if(value.length < 5) {
+				//			return '标题至少得5个字符啊';
+				//		}
+				//	},
+				//	password: [/(.+){6,12}$/, '密码必须6到12位'],
+				//	verity: [/(.+){6}$/, '验证码必须是6位'],
+
+				//});
+
+
+				////监听提交
+				//form.on('submit(login)', function(data) {
+				//	layer.alert(JSON.stringify(data.field), {
+				//		title: '最终的提交信息'
+				//	})
+				//	return false;
+				//});
+
+			});
+    </script>
+</body>
+
+</html>
